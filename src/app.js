@@ -42,4 +42,6 @@ for(let i = 0; i < homeCredits.length; i++)
     console.log("<li>"+homeCredits[i]+"</li>")
 }
 console.log("</ul>")
+let n1 = 2
+let n2 = 4
 
