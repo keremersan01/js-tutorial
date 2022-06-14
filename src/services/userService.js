@@ -1,11 +1,13 @@
 export default class UserService{
-    constructor(){
-        this.users = []
+    constructor(loggerService){
+        this.users = [],
+        this.loggerService = loggerService
     }
 
 
     add(user){
         this.users.push(user)
+        this.loggerService.log(user)
         console.log("User is added!: " + user.name)
     }
 

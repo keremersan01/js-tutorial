@@ -1,12 +1,11 @@
 // "default" keywordu sayesinde direk userService classını import ettik
+import { BaseLogger, ElasticLogger } from "../crossCuttingConcerns/logger.js"
 import User from "../modals/user.js"
 import UserService from "../services/userService.js"
 
-
-
 console.log("User component yüklendi")
-
-let userService = new UserService()
+let logger = new ElasticLogger()
+let userService = new UserService(logger)
 
 
 let user1 = new User(1,"İpek", 24)
