@@ -1,6 +1,6 @@
 export default class UserService{
     constructor(loggerService){
-        this.users = [],
+        this.users = [], // getUsersFormDB()
         this.loggerService = loggerService
     }
 
@@ -19,6 +19,6 @@ export default class UserService{
 
     getById(id)
     {
-        return this.users.find( u => u.id === id)
+        return this.users.find(u => u.id === id)
     }
 }

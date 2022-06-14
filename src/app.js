@@ -13,6 +13,7 @@ var variable = 15
 {
     var variable = 20
 }
+
 let variable2 = 15
 {
     let variable2 = 20

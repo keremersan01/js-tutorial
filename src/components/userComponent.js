@@ -1,5 +1,6 @@
-// "default" keywordu sayesinde direk userService classını import ettik
+// default olmadıgı için ayrı ayrı süslü parantezde import ettik
 import { BaseLogger, ElasticLogger } from "../crossCuttingConcerns/logger.js"
+// "default" keywordu sayesinde direk userService ve User classını import ettik
 import User from "../modals/user.js"
 import UserService from "../services/userService.js"
 
