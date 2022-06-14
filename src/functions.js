@@ -97,7 +97,3 @@ console.log(içAnadoluŞehirleri)
 let n,s,a
 ({name: n,surname: s,age: a} = {name: "Ali",surname: "Taş", age: 21})
 console.log(n + " " + s + " " + a)
-
-
-
-
