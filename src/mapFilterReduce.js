@@ -1,7 +1,7 @@
 let users = [
-    {id: 1, userName: "Kerem", age: 12},
-    {id: 2, userName: "Mehmet", age: 18},
-    {id: 3, userName: "Ali", age: 22}
+    {id: 1, name: "Kerem", age: 12},
+    {id: 2, name: "Mehmet", age: 18},
+    {id: 3, name: "Ali", age: 22}
 ]
 
 // map function
@@ -9,7 +9,7 @@ let users = [
 
 console.log("<ul>")
 users.map(user =>{
-    console.log("<li>" + user.userName + "</li>")
+    console.log("<li>" + user.name + "</li>")
 })
 console.log("</ul>")
 
