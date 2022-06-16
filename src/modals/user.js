@@ -1,8 +1,9 @@
 export default class User{
-    constructor(id, name, age){
+    constructor(id, firstName, lastName, age, city){
         this.id = id
-        this.name = name
+        this.firstName = firstName
+        this.lastName = lastName
         this.age = age
-        console.log("User is created")
+        this.city = city
     }
 }
