@@ -4,5 +4,4 @@ export default class Customer extends User{
         super(id, firstName, lastName, age, city)
         this.creditCardNo = creditCardNo
     }
-
 }

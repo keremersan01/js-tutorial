@@ -2,7 +2,6 @@ import { users } from "../data/data.js"
 
 export default class UserService{
     constructor(loggerService){
-        this.users = [], // getUsersFormDB()
         this.employees = [],
         this.customers = [],
         this.loggerService = loggerService
@@ -25,7 +24,13 @@ export default class UserService{
     }
 
     add(user){
-        this.users.push(user)
+        if(user.type === "customer"){
+            this.users.push(user)
+        }else if(user.type === "employee")
+        {
+            tshis.users.push(user)
+        }
+        
         this.loggerService.log(user)
         console.log("User is added!: " + user.firstName)
     }
@@ -38,6 +43,6 @@ export default class UserService{
 
     getById(id)
     {
-        return this.users.find(u => u.id === id)
+        //return this.users.find(u => u.id === id)
     }
 }
