@@ -22,3 +22,6 @@ console.log("---------------------------------")
 userService.load()
 console.log(userService.employees)
 console.log(userService.customers)
+console.log(userService.errors)
+console.log(userService.list())
+
