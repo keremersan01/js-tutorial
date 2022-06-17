@@ -27,9 +27,9 @@ export default class UserService {
         }
     }
 
-    CheckIfAgeIsInt(user){
+    CheckIfAgeIsInt(user) {
         let hasErrors = false
-        if(Number.isNaN(Number.parseInt(user.age))){
+        if (Number.isNaN(Number.parseInt(user.age))) {
             hasErrors = true
             this.errors.push(new DataError("Age contains letters!", user))
         }
@@ -58,12 +58,19 @@ export default class UserService {
 
     add(user) {
         console.log("User is added!: " + user.firstName)
-        if (!this.ValidateUser(user)) {
-            user.type === "customer" ? (
-                this.customers.push(user)
-            ) : (
-                this.employees.push(user)
-            )
+        console.log(user.type)
+        if (user.type !== "employee" && user.type !== "customer")
+            this.errors.push(new DataError(`Wrong user type on ${user}`), user)
+
+        else if (!this.ValidateUser(user)) {
+            switch (user.type) {
+                case "employee":
+                    this.employees.push(user)
+                    break;
+                case "customer":
+                    this.customers.push(user)
+                    break;
+            }
         }
         this.loggerService.log(user)
     }

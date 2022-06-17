@@ -13,9 +13,11 @@ let userService = new UserService(logger)
 
 let customer = new Customer(1,"İpek", "Yazıcı", 11, "İzmir", "customer", "456454")
 let employee = new Employee(2,"Salim", "Manav", 29, "Adana", "employee", 12000)
+let wrongUser = new Customer(1,"sdfsdf","sdvdfv", 15, "km","mk","5466")
 
 userService.add(customer)
 userService.add(employee)
+userService.add(wrongUser)
 
 console.log(userService.list())
 console.log(userService.getById(2))
