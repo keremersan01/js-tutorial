@@ -29,7 +29,7 @@ export default class UserService {
 
     ValidateUsers(user) {
         let hasErrors = false
-        let requiredFields = ""
+        let requiredFields
 
         if (user.type === "customer")
             requiredFields = "id firstName lastName age city".split(" ")
@@ -48,13 +48,15 @@ export default class UserService {
     }
 
     add(user) {
-        if (user.type === "customer")
-            this.customers.push(user)
-        else if (user.type === "employee")
-            this.employees.push(user)
-
-        this.loggerService.log(user)
         console.log("User is added!: " + user.firstName)
+        if (!this.ValidateUsers(user)) {
+            user.type === "customer" ? (
+                this.customers.push(user)
+            ) : (
+                this.employees.push(user)
+            )
+        }
+        this.loggerService.log(user)
     }
 
     list() {
@@ -64,6 +66,8 @@ export default class UserService {
     }
 
     getById(id) {
-        //return this.users.find(u => u.id === id)
+        let allUsers = this.customers.concat(this.employees)
+        //console.log(allUsers)
+        return allUsers.find(user => user.id === id)
     }
 }
