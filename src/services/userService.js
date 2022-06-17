@@ -13,11 +13,11 @@ export default class UserService {
         for (const user of users) {
             switch (user.type) {
                 case "customer":
-                    if (!this.ValidateUsers(user))
+                    if (!this.ValidateUser(user) && !this.CheckIfAgeIsInt(user))
                         this.customers.push(user)
                     break;
                 case "employee":
-                    if (!this.ValidateUsers(user))
+                    if (!this.ValidateUser(user) && !this.CheckIfAgeIsInt(user))
                         this.employees.push(user)
                     break;
                 default:
@@ -27,7 +27,16 @@ export default class UserService {
         }
     }
 
-    ValidateUsers(user) {
+    CheckIfAgeIsInt(user){
+        let hasErrors = false
+        if(Number.isNaN(Number.parseInt(user.age))){
+            hasErrors = true
+            this.errors.push(new DataError("Age contains letters!", user))
+        }
+        return hasErrors
+    }
+
+    ValidateUser(user) {
         let hasErrors = false
         let requiredFields
 
@@ -49,7 +58,7 @@ export default class UserService {
 
     add(user) {
         console.log("User is added!: " + user.firstName)
-        if (!this.ValidateUsers(user)) {
+        if (!this.ValidateUser(user)) {
             user.type === "customer" ? (
                 this.customers.push(user)
             ) : (
@@ -67,7 +76,6 @@ export default class UserService {
 
     getById(id) {
         let allUsers = this.customers.concat(this.employees)
-        //console.log(allUsers)
         return allUsers.find(user => user.id === id)
     }
 }
